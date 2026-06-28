@@ -206,7 +206,7 @@ export const translations = {
     hero: {
       greeting: 'halo, saya',
       typingTitles: [
-        'Afridho',
+        'Dhodo',
         'Software Engineer',
         'Freelancer',
         'Full-Stack Developer',
