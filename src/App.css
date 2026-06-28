@@ -1,0 +1,176 @@
+@import 'tailwindcss';
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Theme Variables (portfolio-e7gt.onrender.com) */
+:root {
+  --bg-color: #fefefe;
+  --text-color: #111111;
+  --nav-bg: #f5f5f5;
+  --nav-text: #111111;
+  --link-bg-hover: #e0e0e0;
+  --link-text: #111111;
+  --button-bg: #ffffff;
+  --button-text: #111111;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+}
+
+html.dark {
+  --bg-color: #111111;
+  --text-color: #fefefe;
+  --nav-bg: #1a1a1a;
+  --nav-text: #fefefe;
+  --link-bg-hover: #333333;
+  --link-text: #fefefe;
+  --button-bg: #222222;
+  --button-text: #fefefe;
+  --border-color: #1f2937;
+  --card-bg: #161616;
+}
+
+/* Base style resets */
+html,
+body {
+  margin: 0;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Custom Scroll Bar conforming to reference themes */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--link-bg-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b00;
+}
+
+/* Smooth layout element theme transitions */
+section,
+header,
+footer,
+div,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+input,
+textarea,
+button,
+a {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Custom Animations & Interactions */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+/* Infinite Horizontal Scroll Marquee */
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  display: flex;
+  width: max-content;
+  animation: infinite-scroll 25s linear infinite;
+}
+
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Scroll Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project Card Specific overrides */
+.project-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Timeline Custom styles */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
